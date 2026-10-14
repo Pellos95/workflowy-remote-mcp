@@ -74,6 +74,7 @@ export async function fetchUpstreamAuthToken({
 	const body = await resp.formData();
 	const accessToken = body.get("access_token") as string;
 	if (!accessToken) {
+		console.error("GitHub token exchange returned no access_token:", body.get("error"), body.get("error_description"));
 		return [null, new Response("Missing access token", { status: 400 })];
 	}
 	return [accessToken, null];
