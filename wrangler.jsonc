@@ -1,0 +1,28 @@
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "workflowy-mcp",
+	"main": "src/index.ts",
+	"compatibility_date": "2025-03-10",
+	"compatibility_flags": ["nodejs_compat"],
+	"migrations": [
+		{ "new_sqlite_classes": ["WorkflowyMCP"], "tag": "v1" }
+	],
+	"durable_objects": {
+		"bindings": [
+			{ "class_name": "WorkflowyMCP", "name": "MCP_OBJECT" }
+		]
+	},
+	"kv_namespaces": [
+		{ "binding": "OAUTH_KV", "id": "f4f5f0ec5ee4446c9a6e5bba2eea984c" }
+	],
+	"d1_databases": [
+		{
+			"binding": "DB",
+			"database_name": "workflowy-mirror",
+			"database_id": "4ab8f589-8b1c-4a20-a240-ebaa08e3330f"
+		}
+	],
+	"triggers": { "crons": ["0 0 * * *", "0 12 * * *"] },
+	"observability": { "enabled": true },
+	"dev": { "port": 8788 }
+}
