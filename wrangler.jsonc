@@ -22,7 +22,7 @@
 			"database_id": "4ab8f589-8b1c-4a20-a240-ebaa08e3330f"
 		}
 	],
-	"triggers": { "crons": ["0 0 * * *", "0 12 * * *"] },
+	"triggers": { "crons": ["0 1 * * *"] },
 	"observability": { "enabled": true },
 	"dev": { "port": 8788 }
 }
